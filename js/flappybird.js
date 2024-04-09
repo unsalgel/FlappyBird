@@ -103,7 +103,20 @@ function Update() {
   context.fillText(score, 5, 45);
 
   if (gameOver) {
-    context.fillText("GAME OVER", 5, 90);
+    let gameOverTextWidth = context.measureText("GAME OVER").width;
+    let gameOverTextHeight = 45;
+    context.fillStyle = "red";
+    let gameOverTextX = (boardWidth - gameOverTextWidth) / 2;
+    let gameOverTextY = (boardHeight + gameOverTextHeight) / 2;
+    context.fillText("GAME OVER", gameOverTextX, gameOverTextY);
+    let scoreText = "Skorunuz: " + score;
+    let scoreTextWidth = context.measureText(scoreText).width;
+    let scoreTextX = (boardWidth - scoreTextWidth) / 2;
+    let scoreTextY = gameOverTextY + gameOverTextHeight + 30;
+    context.fillStyle = "white";
+    context.font = "25px sans-serif";
+    context.fillText(scoreText, scoreTextX, scoreTextY);
+    context.fillText(scoreText, scoreTextX, scoreTextY);
   }
 }
 
